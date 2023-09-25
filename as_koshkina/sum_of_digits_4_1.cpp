@@ -5,7 +5,9 @@
 // Дано трехзначное число. Найдите сумму его цифр.
 
 #include <iostream>
+
 using namespace std;
+
 int main() {
     cout << "Введите трёхзначное число" << endl;
     int n;

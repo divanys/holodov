@@ -5,6 +5,7 @@
 //Дано натуральное число N. Напишите программу, вычисляющую сумму цифр числа N. (с использованием while)
 
 #include <iostream>
+
 using namespace std;
 
 int main() {

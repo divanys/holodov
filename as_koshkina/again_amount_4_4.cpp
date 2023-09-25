@@ -6,6 +6,7 @@
 //Вводится 2 целых числа a и b (a <= b). Необходимо вычислить сумму всех чисел от a до b включительно.
 
 #include <iostream>
+
 using namespace std;
 
 int main() {
