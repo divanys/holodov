@@ -27,7 +27,8 @@ int main() {
     cout << "value = " << value << endl;
     cout << "sum_by_reference = " << sum_by_reference(value) << endl;
     cout << "value = " << value << endl;
-    cout << "sum_by_pointer = " << sum_by_pointer(&value) << endl;  // если указатель терпит изменение, то
+    cout << "sum_by_pointer = " << sum_by_pointer(&value)
+         << endl;  // если указатель терпит изменение, то и сама переменная тоже
     cout << "value = " << value << endl;
 
     return 0;
