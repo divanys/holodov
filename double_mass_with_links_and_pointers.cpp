@@ -20,8 +20,9 @@ void showArr(double *ptrArr, int sizeOfArr);
 
 double *freeMemory(double *ptrArr);
 
+double avgg(double *ptrArr, int sizeOfArr);
+
 int main() {
-    setlocale(LC_ALL, "rus");
     double *pArrForFill = 0;
     char userAnswer = 0;
     do {
@@ -31,6 +32,7 @@ int main() {
         pArrForFill = giveMemoryToArr(pArrForFill, sizeOfArray);
         fillArr(pArrForFill, sizeOfArray);
         showArr(pArrForFill, sizeOfArray);
+        cout << "\nAVG = " << avgg(pArrForFill, sizeOfArray);
         pArrForFill = freeMemory(pArrForFill);
         cout << "\nПродолжить (1). Выйти (0): ";
         cin >> userAnswer;
@@ -60,4 +62,14 @@ double *freeMemory(double *ptrArr) {
     delete[] ptrArr;
     ptrArr = 0;
     return ptrArr;
+}
+
+// среднееарифм значение всего массива
+
+double avgg(double *ptrArr, int sizeOfArr) {
+    double sum = 0;
+    for (int i = 0; i < sizeOfArr; i++) {
+        sum += ptrArr[i];
+    }
+    return (sum / sizeOfArr);
 }
