@@ -8,8 +8,9 @@
 using namespace std;
 
 int nod(int, int);
+
 int main() {
-    int(*prtnod)(int, int);  // объявляем указатель на функцию (тот же тип, что и у функции)
+    int (*prtnod)(int, int);  // объявляем указатель на функцию (тот же тип, что и у функции)
     prtnod = nod;
     int a, b;
     cout << "Введите 2 числа через пробел: " << endl;
