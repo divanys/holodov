@@ -14,7 +14,6 @@
 #include <time.h>
 #include <cmath>
 #include <map>
-#include <vector>
 
 using namespace std;
 
@@ -41,26 +40,33 @@ int main() {
     char userAnswer = 0;
     do {
         int sizeOfArray = 0;
+
         cout << "Размер массива: ";
         cin >> sizeOfArray;
 
         pArrForFill = giveMemoryToArr(pArrForFill, sizeOfArray);
+
         fillArr(pArrForFill, sizeOfArray);
+
         cout << "Our array is" << endl;
         showArr(pArrForFill, sizeOfArray);
+
         cout << "\nAVG = " << avgg(pArrForFill, sizeOfArray) << endl;
+
         cout << "1. Количество чётных элементов = " << even_and_uneven(pArrForFill, sizeOfArray)[0]
              << "\n   Количество нечётных элементов = " << even_and_uneven(pArrForFill, sizeOfArray)[1] << endl;
+
         cout << "2. Произведение элементов чётных позиций = " << mult(pArrForFill, sizeOfArray) << endl;
+
         cout << "3. Возвели во вторую степень элементы нечётных позиций:" << endl;
         degree(pArrForFill, sizeOfArray);
         showArr(pArrForFill, sizeOfArray);
+
         // 4 задание у нас выявляет макс и мин среди уже возведённых во 2 степень элементов
         map<string, int> result = find_min_and_max_count(pArrForFill, sizeOfArray);
         cout << "4. Выявили максимальные и минимальные элементы и посчитали их количество" << endl;
         cout << "Min: " << result["min"] << ", Count: " << result["minCount"] << endl;
         cout << "Max: " << result["max"] << ", Count: " << result["maxCount"] << endl;
-
 
         pArrForFill = freeMemory(pArrForFill);
 
@@ -78,6 +84,7 @@ int *giveMemoryToArr(int *ptrArr, int sizeOfArr) {
 
 void fillArr(int *ptrArr, int sizeOfArr) {
     srand(time(NULL));
+
     for (int i = 0; i < sizeOfArr; i++) {
         ptrArr[i] = 1 + rand() % 10;
     }
@@ -99,6 +106,7 @@ int *freeMemory(int *ptrArr) {
 // среднееарифм значение всего массива
 double avgg(int *ptrArr, int sizeOfArr) {
     double sum = 0;
+
     for (int i = 0; i < sizeOfArr; i++) {
         sum += ptrArr[i];
     }
@@ -127,7 +135,8 @@ array<int, 2> even_and_uneven(int *ptrArr, int sizeOfArr) {
 
 // 2. посчитать произведение элементов на чётных позициях
 int mult(int *ptrArr, int sizeOfArr) {
-    double mult = 1;
+    int mult = 1;
+
     for (int i = 0; i < sizeOfArr; i++) {
         if (i % 2 == 0) {
             mult *= ptrArr[i];
