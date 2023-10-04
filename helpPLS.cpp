@@ -16,8 +16,6 @@ struct WondWom {
     bool engKnow;
 };
 
-void strcpy_s(char name[32], const char *string);
-
 void showData(const WondWom &obj) {
     cout << "Модель " << obj.name << endl;
     cout << "Возраст " << obj.age << endl;
