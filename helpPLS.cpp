@@ -25,19 +25,23 @@ void showData(const WondWom &obj) {
     cout << "2. " << obj.volume.waist << endl;
     cout << "3. " << obj.volume.hips << endl;
     cout << "Знание английского (да/нет) " << obj.engKnow << endl;
-
 }
 
 int main() {
-    WondWom first = {};
-    strcpy(first.name, "Оксана");
-    first.age = 32;
-    first.height = 172;
-    first.weight = 55;
-    first.engKnow = 1;
-    first.volume.breast = 90;
-    first.volume.waist = 60;
-    first.volume.hips = 90;
+//    WondWom first = {};
+//    strcpy(first.name, "Оксана");
+//    first.age = 32;
+//    first.height = 172;
+//    first.weight = 55;
+//    first.engKnow = 1;
+//    first.volume.breast = 90;
+//    first.volume.waist = 60;
+//    first.volume.hips = 90;
+//    showData(first);
+
+//    Size volume = {90, 60, 90};
+    WondWom first = {"Oksana", 23, 172, 55, {90, 60, 90}, 1};
     showData(first);
+    return 0;
 }
 
