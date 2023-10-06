@@ -26,7 +26,7 @@ int main() {
         sponsorAmount++;
         cout << "Продолжить ввод данных (1 - да, 0 - нет): ";
         cin >> YesOrNot;
-        cin.get();
+        cin.get();  // очищение оператора cin
     } while (YesOrNot != 0);
     showData(OurSponsors, sponsorAmount);
     delete[] OurSponsors;
