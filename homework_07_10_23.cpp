@@ -165,7 +165,7 @@ void showDataAVG4(const Student *Obj, const int amount) {
 }
 
 // Упорядочить массив по возрасту
-void swapStudents(Student &a, Student &b) {
+void swapStudents(Student &a, Student &b) {  // просто обмен данными
     Student temp = a;
     a = b;
     b = temp;
