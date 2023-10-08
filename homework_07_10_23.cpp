@@ -45,6 +45,10 @@ void showDataAVG4(const Student *Obj, const int amount);
 
 double avg(const Student *Obj, const int amount);
 
+void swapStudents(Student &a, Student &b);
+
+void sortByAge(Student *Obj, const int amount);
+
 int main() {
     Student *OurStudent = 0;
     int studentAmount = 0;
@@ -59,13 +63,15 @@ int main() {
         cin.get();  // очищение оператора cin
     } while (YesOrNot != 0);
 
+    cout << "\nЗадание 2.\nВывести в табличной форме данный массив." << endl;
     showData(OurStudent, studentAmount);
 
-    cout << "Задание 3.\nВывести на экран список студентов со ср оценкой больше 4." << endl;
+    cout << "\nЗадание 3.\nВывести на экран список студентов со ср оценкой больше 4." << endl;
     showDataAVG4(OurStudent, studentAmount);
 
-    cout << "Задание 3.\nВывести на экран список студентов со ср оценкой больше 4." << endl;
-    showDataAVG4(OurStudent, studentAmount);
+    cout << "\nЗадание 4.\nУпорядочить массив по возрасту." << endl;
+    sortByAge(OurStudent, studentAmount); // Упорядочиваем по возрасту
+    showData(OurStudent, studentAmount);
 
     delete[] OurStudent;
     return 0;
@@ -83,6 +89,7 @@ Student *AddStruct(Student *Obj, const int amount) {
         delete[] Obj;
         Obj = tempObj;
     }
+
     return Obj;
 }
 
@@ -133,6 +140,8 @@ double avg(const Marks &marks) {
 }
 
 void showDataAVG4(const Student *Obj, const int amount) {
+    int YorN = 0;
+
     cout << "№  " << "Имя\t\t" << "Фамилия\t\t" << "Группа\t" << "Возраст\t" << "DoSM\t"
          << "SysPro\t" << "Eng\t" << "PhyCul\t"
          << "DaDotPPI\t" << endl;
@@ -145,10 +154,30 @@ void showDataAVG4(const Student *Obj, const int amount) {
                  << Obj[i].age
                  << '\t' << Obj[i].marks.DoSM << '\t' << Obj[i].marks.SysPro << '\t' << Obj[i].marks.Eng << '\t'
                  << Obj[i].marks.PhyCul << '\t' << Obj[i].marks.DaDotPPI << endl;
-        } else {
-            cout << "Таких студентов не найдено!" << endl;
+
+            YorN++;
         }
+    }
+
+    if (YorN == 0) {
+        cout << "Таких студентов не найдено!" << endl;
     }
 }
 
 // Упорядочить массив по возрасту
+void swapStudents(Student &a, Student &b) {
+    Student temp = a;
+    a = b;
+    b = temp;
+}
+
+void sortByAge(Student *Obj, const int amount) {  // сортировка пузырьком помогает)
+    for (int i = 0; i < amount - 1; i++) {
+        for (int j = 0; j < amount - i - 1; j++) {
+            if (Obj[j].age > Obj[j + 1].age) {
+                swapStudents(Obj[j], Obj[j + 1]);
+            }
+        }
+    }
+}
+
