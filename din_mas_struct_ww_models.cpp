@@ -1,10 +1,6 @@
 //
 // Created by divan on 10/6/23.
 // переделать программу с моделями (за 4 октября) под динамический массив структур
-
-//
-// Created by divan on 10/6/23.
-//
 #include<iostream>
 
 using namespace std;

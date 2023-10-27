@@ -18,7 +18,6 @@
 // Разделить по принципу ооп разработки
 
 #include "Auto.h"
-#include "Auto.cpp"
 
 int main() {
     int numCars;

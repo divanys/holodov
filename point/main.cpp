@@ -8,28 +8,24 @@
 //    p1.init(3, 6);
 //    p1.print();
 //    return 0;
+#include <iostream>
+
+using namespace std;
 
 
 #include "Point.h"
+#include "Point.cpp"
+
 
 int main() {
-    Point *p1 = new Point;
-    Point *p2 = new Point;
-    // p1.Point::x;
-    // p1.x;
+    Point p1;
 
-//    p1->init(3, 6);
-    p2->init(3.4, 4.4);
+    Point p2 = Point(3.0, 6.0);
+    Point p3(3, 6);
+    p3.print();
+    Point p4 = p2;
+    Point p5 = 5;
+    p5.print();
 
-    cout << "\np1\n";
-    p1->print();
-    cout << "\np2\n";
-    p2->print();
-
-    Point arr[10];
-    arr[3] = *p1;
-
-    cout << "\np1 (определяем объект в массиве ссылка)\n";
-    arr[3].print();
     return 0;
 }

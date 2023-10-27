@@ -14,6 +14,10 @@ private:
     double x, y;
 public:
     Point();
+    Point(const Point&);
+    Point(double, double );
+    Point(double i);
+    ~Point();
     void init(double xi, double yi);
     void print();
 };
