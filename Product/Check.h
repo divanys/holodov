@@ -1,45 +1,27 @@
 //
 // Created by divan on 11/7/23.
 //
+#include <iostream>
 
+using namespace std;
 #ifndef HOLODOV_CHECK_H
 #define HOLODOV_CHECK_H
 // заголовочный файл производного класса Check для класса Buy
-#include "buy.h"
-class Check :public Buy// открытое наследование
-{
-public:
-void printProductInfo() {
-    cout <<"Товар: " << getName() << endl;
-    cout <<"Цена " << getPrice() <<" грн\n";
-    cout <<"Вес: " << getWeight() <<" кг\n\n";
-}
+#include "Buy.h"
 
-void printBuyInfo()
-{
-cout <<"Товара куплено: " << getSum() <<" шт\n";
-cout <<"На сумму " << getSumPrice() <<" грн\n";
-#endif //HOLODOV_CHECK_H
-// заголовочный файл производного класса Check для класса Buy
- 
-#include "buy.h"
- 
-class Check : public Buy // открытое наследование
+class Check : public Buy// открытое наследование
 {
 public:
-void printProductInfo()
-{
-    cout << "Товар: " << getName()   << endl;
-    cout << "Цена:  "  << getPrice()  << " грн\n";
-    cout << "Вес:   "   << getWeight() << " кг\n\n";
-}
- 
-    void printBuyInfo()
-    {
-        cout << "Товара куплено: " << getSum() << " шт\n";
-        cout << "На сумму:       " << getSumPrice() << " грн\n";
-        cout << "Общий вес:      " << getSumWeight() << " кг\n\n";
-    }
- 
+    void printProductInfo() {
+        cout << "Товар: " << getName() << endl;
+        cout << "Цена " << getPrice() << " грн\n";
+        cout << "Вес: " << getWeight() << " кг\n\n";
+    }
+
+    void printBuyInfo() {
+        cout << "Товара куплено: " << getSum() << " шт\n";
+        cout << "На сумму " << getSumPrice() << " грн\n";
+    }
 };
-#endif CHECK_H
+
+#endif //HOLODOV_CHECK_H
