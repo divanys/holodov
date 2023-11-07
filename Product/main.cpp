@@ -1,39 +1,67 @@
-//
-// Created by divan on 11/7/23.
-//
-#include "Product.h"
-#include "Buy.h"
-#include "Check.h"
 #include <iostream>
+#include <string>
+#include <iomanip>
 
-using namespace std;
+using namespace std; // Используем пространство имен std
+
+class Product {
+private:
+    string name;
+    double price;
+    double weight;
+
+public:
+    Product(const string &name, double price, double weight)
+            : name(name), price(price), weight(weight) {}
+
+    const string &getName() const {
+        return name;
+    }
+
+    double getPrice() const {
+        return price;
+    }
+
+    double getWeight() const {
+        return weight;
+    }
+};
+
+class Buy : public Product {
+private:
+    int quantity;
+
+public:
+    Buy(const string &name, double price, double weight, int quantity)
+            : Product(name, price, weight), quantity(quantity) {}
+
+    int getQuantity() const {
+        return quantity;
+    }
+
+    double getTotalPrice() const {
+        return getPrice() * quantity;
+    }
+};
+
+class Check : public Buy {
+public:
+    Check(const string &name, double price, double weight, int quantity)
+            : Buy(name, price, weight, quantity) {}
+
+    void printCheck() const {
+        cout << left << setw(15) << "Товар" << left << setw(10) << "Цена" << left << setw(10) << "Вес" << left
+             << setw(10) << "Количество" << left << setw(15) << "Итоговая цена" << endl;
+        cout << left << setw(15) << getName() << left << setw(10) << getPrice() << left << setw(10) << getWeight()
+             << left << setw(10) << getQuantity() << left << setw(15) << getTotalPrice() << endl;
+    }
+};
 
 int main() {
-    // Создаем объект товара
-    Product product;
-    product.setName("Продукт 1");
-    product.setPrice(10.5);
-    product.setWeight(0.5);
-
-    // Создаем объект покупки
-    Buy buy;
-    buy.setSum(3); // Покупаем 3 единицы товара
-
-    // Выводим информацию о товаре и покупке
-    cout << "Информация о товаре:" << endl;
-    cout << "Имя: " << product.getName() << endl;
-    cout << "Цена: " << product.getPrice() << " грн" << endl;
-    cout << "Вес: " << product.getWeight() << " кг" << endl << endl;
+    Check item("Молоко", 1.5, 1.0, 3);
 
     cout << "Информация о покупке:" << endl;
-    cout << "Количество: " << buy.getSum() << " шт" << endl;
-    cout << "Общая цена: " << buy.getSumPrice() << " грн" << endl;
-    cout << "Общий вес: " << buy.getSumWeight() << " кг" << endl << endl;
-
-    // Создаем объект чека и выводим информацию о покупке и товаре
-    Check check;
-    check.printProductInfo();
-    check.printBuyInfo();
+    item.printCheck();
 
     return 0;
 }
