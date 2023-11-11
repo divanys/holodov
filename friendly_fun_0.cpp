@@ -4,17 +4,19 @@
 #include <iostream>
 #include <string>
 
-class Auto
-{
+class Auto {
     friend void drive(Auto &);
+
     friend void setPrice(Auto &, int price);
+
 public:
-    Auto(std::string autoName, int autoPrice)
-    {
-    name = autoName;
-    price = autoPrice;
+    Auto(std::string autoName, int autoPrice) {
+        name = autoName;
+        price = autoPrice;
     }
-    std::string getName(){ return name; }
+
+    std::string getName() { return name; }
+
     int getPrice() { return price; }
 
 private:
@@ -22,18 +24,16 @@ private:
     int price; // цена автомобиля
 };
 
-void drive(Auto &a)
-{
+void drive(Auto &a) {
     std::cout << a.name << " is driven" << std::endl;
 }
-void setPrice(Auto &a, int price)
-{
+
+void setPrice(Auto &a, int price) {
     if (price > 0)
-    a.price = price;
+        a.price = price;
 }
 
-int main()
-{
+int main() {
     Auto tesla("Tesla", 5000);
     drive(tesla);
     std::cout << tesla.getName() << " : " << tesla.getPrice() << std::endl;
