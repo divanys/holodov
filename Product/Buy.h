@@ -1,27 +1,25 @@
-//
-// Created by divan on 11/7/23.
-//
-
+// Buy.h
 #ifndef HOLODOV_BUY_H
 #define HOLODOV_BUY_H
-// заголовочный фай производного класса Buy для класса Product
+
+#include <vector>
 #include "Product.h"
 
-class Buy : public Product// открытое наследование
-{
+class Buy {
 private:
-    int sum;// количество покупаемого товара в шт.
-    double sum_price,// цена за весь купленный товар
-    sum_weight;// общий вес
+    std::vector<std::pair<Product, int>> products; // пара: продукт и количество
+    double sum_price; // суммарная цена
+    double sum_weight; // суммарный вес
 public:
-    Buy();// конструктор
+    Buy();
 
-    void setSum(const int &);// установить количество покупаемого товара
-    int getSum() const;// возвратить количество покупаемого товара
+    void setProduct(const Product &, int);
 
-    double getSumPrice() const;// возвратить цену за весь купленный товар
+    const std::vector<std::pair<Product, int>>& getProducts() const;
 
-    double getSumWeight() const;// возвратить общий вес покупки
+    double getSumPrice() const;
+
+    double getSumWeight() const;
 };
 
 #endif //HOLODOV_BUY_H

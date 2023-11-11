@@ -1,15 +1,14 @@
-//
-// Created by divan on 11/7/23.
-//
-// заголовочный файл базового класса Product для всех классов
+// Product.h
 #ifndef HOLODOV_PRODUCT_H
 #define HOLODOV_PRODUCT_H
 
+#include <cstring>
+#include <iostream>
+
 class Product {
 private:
-    char name[50];// имя товара
-    double price,  // цена
-    weight;  // вес 1 ед.
+    char name[50];
+    double price, weight;
 public:
     Product();
 
@@ -17,11 +16,15 @@ public:
 
     const char *getName() const;
 
-    void setPrice(const double &);  // установить цену товара
-    double getPrice() const;  // возвратить цену товара
+    void setPrice(const double &);
 
-    void setWeight(const double &);  // установить вес 1 ед. товара
-    double getWeight() const;  // возвратить вес 1 ед. товара
+    double getPrice() const;
+
+    void setWeight(const double &);
+
+    double getWeight() const;
+
+    void printProductInfo() const;
 };
 
 #endif //HOLODOV_PRODUCT_H

@@ -1,35 +1,24 @@
-//
-// Created by divan on 11/7/23.
-//
-
+// Buy.cpp
 #include "Buy.h"
-#include <iostream>
 
-using namespace std;
-
-Buy::Buy()// конструктор
-        : sum(0), sum_price(0.0), sum_weight(0.0) {
-// пустое тело конструктора
+Buy::Buy()
+        : sum_price(0.0), sum_weight(0.0) {
 }
 
-void Buy::setSum(const int &value)// установить количество покупаемого товара
-{
-    sum = (value >= 0 ? value : 0);
-    sum_price = sum * getPrice();// получаем стоимость всего товара
-    sum_weight = sum * getWeight();// получаем общий вес покупаемого товара
+void Buy::setProduct(const Product &product, int quantity) {
+    products.emplace_back(product, quantity);
+    sum_price += product.getPrice() * quantity;
+    sum_weight += product.getWeight() * quantity;
 }
 
-int Buy::getSum() const // возвратить количество покупаемого товара
-{
-    return sum;
+const std::vector<std::pair<Product, int>>& Buy::getProducts() const {
+    return products;
 }
 
-double Buy::getSumPrice() const // возвратить цену за весь купленный товар
-{
+double Buy::getSumPrice() const {
     return sum_price;
 }
 
-double Buy::getSumWeight() const // возвратить общий вес покупки
-{
+double Buy::getSumWeight() const {
     return sum_weight;
 }
