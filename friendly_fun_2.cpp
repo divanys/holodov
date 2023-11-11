@@ -14,7 +14,7 @@ public:
 
     void drive(Auto &a);
 
-    void setPrice(Auto &a, int price);
+    static void setPrice(Auto &a, int price);
 
 private:
     std::string name;
@@ -31,7 +31,7 @@ public:
 
     std::string getName() { return name; }
 
-    int getPrice() { return price; }
+    int getPrice() const { return price; }
 
 private:
     std::string name; // название автомобиля
