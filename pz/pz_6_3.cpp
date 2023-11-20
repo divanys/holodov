@@ -40,8 +40,8 @@ int main() {
 
         // Обновляем оригинальную строку с отсортированными словами
         string sortedSubstringBeforeStar = words[0];
-        for (int i = 1; i < words.size(); ++i) {
-            sortedSubstringBeforeStar += " " + words[i];
+        for (const auto & word : words) {
+            sortedSubstringBeforeStar += " " + word;
         }
         text.replace(0, starIndex, sortedSubstringBeforeStar);
 
