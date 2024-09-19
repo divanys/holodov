@@ -46,11 +46,11 @@ int sumColumn(int arr[MAX_SIZE][MAX_SIZE], int a, int b, int col) {
 }
 
 int productMainDiagonal(int arr[MAX_SIZE][MAX_SIZE], int a, int b) {
-    int product = 1;
+    int p = 1;
     for(int i = 0; i < min(a, b); i++) {
-        product *= arr[i][i];
+        p *= arr[i][i];
     }
-    return product;
+    return p;
 }
 
 double avgSecondaryDiagonal(int arr[MAX_SIZE][MAX_SIZE], int a, int b) {
